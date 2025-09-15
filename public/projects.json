@@ -1,0 +1,98 @@
+[
+  {
+    "name": "Admirable Profiterole",
+    "image": "https://via.placeholder.com/400x250.png?text=Admirable+Profiterole",
+    "projectLink": "https://admirable-profiterole-afac92.netlify.app/",
+    "description": "A modern web project showcasing responsive design and clean UI implementation.",
+    "technologies": ["React", "Tailwind CSS", "Netlify"],
+    "githubLink": "https://github.com/username/admirable-profiterole",
+    "type": "Web Application",
+    "status": "Completed",
+    "features": ["Responsive design", "Clean UI", "Fast loading"],
+    "tags": ["frontend", "UI/UX", "react"]
+  },
+  {
+    "name": "Lambent Medovik",
+    "image": "https://via.placeholder.com/400x250.png?text=Lambent+Medovik",
+    "projectLink": "https://lambent-medovik-7f7430.netlify.app/",
+    "description": "A creative application highlighting interactive features and smooth navigation.",
+    "technologies": ["React", "CSS3", "Netlify"],
+    "githubLink": "https://github.com/username/lambent-medovik",
+    "type": "Landing Page",
+    "status": "Completed",
+    "features": ["Interactive UI", "Smooth navigation", "Cross-browser support"],
+    "tags": ["frontend", "react", "landing-page"]
+  },
+  {
+    "name": "Moonlit Maamoul",
+    "image": "https://via.placeholder.com/400x250.png?text=Moonlit+Maamoul",
+    "projectLink": "https://moonlit-maamoul-f2b09f.netlify.app/",
+    "description": "An elegant project focusing on aesthetics and user-friendly layout.",
+    "technologies": ["HTML5", "CSS3", "JavaScript"],
+    "githubLink": "https://github.com/username/moonlit-maamoul",
+    "type": "Portfolio",
+    "status": "Completed",
+    "features": ["Elegant design", "User-friendly layout", "Responsive structure"],
+    "tags": ["frontend", "portfolio", "design"]
+  },
+  {
+    "name": "Genuine Gumption",
+    "image": "https://via.placeholder.com/400x250.png?text=Genuine+Gumption",
+    "projectLink": "https://genuine-gumption-052ccb.netlify.app/",
+    "description": "A robust project built with attention to detail and smooth performance.",
+    "technologies": ["React", "Bootstrap", "Netlify"],
+    "githubLink": "https://github.com/username/genuine-gumption",
+    "type": "Web Application",
+    "status": "Completed",
+    "features": ["Performance optimized", "Reusable components", "Responsive design"],
+    "tags": ["react", "frontend", "bootstrap"]
+  },
+  {
+    "name": "Celadon Phoenix",
+    "image": "https://via.placeholder.com/400x250.png?text=Celadon+Phoenix",
+    "projectLink": "https://celadon-phoenix-217c64.netlify.app/",
+    "description": "A creative design with strong emphasis on modern web components.",
+    "technologies": ["React", "Tailwind CSS", "Framer Motion"],
+    "githubLink": "https://github.com/username/celadon-phoenix",
+    "type": "UI Showcase",
+    "status": "Completed",
+    "features": ["Modern animations", "Component-based UI", "Clean design"],
+    "tags": ["frontend", "UI/UX", "tailwind"]
+  },
+  {
+    "name": "Lucent Chaja",
+    "image": "https://via.placeholder.com/400x250.png?text=Lucent+Chaja",
+    "projectLink": "https://lucent-chaja-5cf40a.netlify.app/",
+    "description": "A project showcasing smooth animations and intuitive UI elements.",
+    "technologies": ["React", "Tailwind CSS", "Netlify"],
+    "githubLink": "https://github.com/username/lucent-chaja",
+    "type": "Web Application",
+    "status": "Completed",
+    "features": ["Smooth animations", "Interactive components", "Intuitive UI"],
+    "tags": ["frontend", "animations", "react"]
+  },
+  {
+    "name": "Glowing Melba",
+    "image": "https://via.placeholder.com/400x250.png?text=Glowing+Melba",
+    "projectLink": "https://app.netlify.com/projects/glowing-melba-ebcdf8/overview",
+    "description": "A project dashboard with development insights and feature-rich interface.",
+    "technologies": ["React", "Node.js", "Express"],
+    "githubLink": "https://github.com/username/glowing-melba",
+    "type": "Dashboard",
+    "status": "Ongoing",
+    "features": ["Project management", "Analytics dashboard", "Scalable structure"],
+    "tags": ["dashboard", "react", "nodejs"]
+  },
+  {
+    "name": "Glistening Chimera",
+    "image": "https://via.placeholder.com/400x250.png?text=Glistening+Chimera",
+    "projectLink": "https://glistening-chimera-cfaa93.netlify.app/",
+    "description": "An experimental project combining design creativity with solid functionality.",
+    "technologies": ["HTML5", "CSS3", "JavaScript"],
+    "githubLink": "https://github.com/username/glistening-chimera",
+    "type": "Experimental",
+    "status": "Prototype",
+    "features": ["Creative layout", "Experimental features", "Solid functionality"],
+    "tags": ["experimental", "design", "javascript"]
+  }
+]
