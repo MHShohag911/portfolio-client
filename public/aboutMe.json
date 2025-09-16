@@ -1,0 +1,58 @@
+[
+  {
+    "name": "Md Shohag Hossain",
+    "title": "Mechanical Engineer | Aspiring Robotics Researcher | Web Developer",
+    "profilePicture": "https://i.ibb.co.com/LzkXR1Sy/IMG-20230824-162739126-3.jpg",
+    "about": {
+      "education": {
+        "degrees": [
+          {
+            "degree": "B.Tech in Mechanical Engineering (Specialization in Mechatronics)",
+            "university": "Jain University",
+            "graduationYear": 2024
+          }
+        ]
+      },
+      "futurePlan": "Pursuing M.Tech in Robotics in Europe",
+      "researchInterest": [
+        "Autonomous Robots",
+        "AI Integration",
+        "Multi-Robot Systems",
+        "Traffic Flow Optimization using Multi-Robot Systems",
+        "Simulation-based Robotics Research"
+      ],
+      "skills": {
+        "programming": [
+          "JavaScript",
+          "Python",
+          "MATLAB",
+          "React",
+          "Node.js",
+          "MongoDB"
+        ],
+        "robotics": ["Arduino", "RFID-based Systems", "Simulation Tools"],
+        "mechanicalDesignAndSimulation": [
+          "SolidWorks",
+          "ANSYS",
+          "Mechanical CAD"
+        ],
+
+        "others": [
+          "REST API",
+          "Voice Recognition Integration",
+          "Material-UI",
+          "Tailwind CSS"
+        ]
+      }
+    },
+    "contact": {
+      "email": "shohagmdhossain@gmail.com",
+      "whatsapp": "+8801911712162",
+      "github": "https://github.com/yourusername",
+      "linkedin": "https://linkedin.com/in/yourusername",
+      "facebook": "https://facebook.com/yourusername",
+      "instagram": "https://instagram.com/yourusername",
+      "x": "https://x.com/yourusername"
+    }
+  }
+]

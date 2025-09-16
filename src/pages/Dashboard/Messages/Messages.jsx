@@ -36,12 +36,12 @@ const Messages = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosSecure.delete(`/projects-links/${id}`).then((res) => {
+        axiosSecure.delete(`/messages/${id}`).then((res) => {
           if (res.data.deletedCount > 0) {
             refetch();
             Swal.fire({
               title: "Deleted",
-              text: "Your file has been deleted.",
+              text: "Message has been deleted.",
               icon: "success",
             });
           }
@@ -73,7 +73,7 @@ const Messages = () => {
             </tr>
           </thead>
           <tbody>
-            {messages.map(({ _id, name, email, message }, index) => {
+            {messages.map(({ _id, name, email, message, createdAt}, index) => {
               const isLast = index === messages.length - 1;
               const classes = isLast
                 ? "p-4"
@@ -119,7 +119,7 @@ const Messages = () => {
                   </td>
                   <td className={classes}>
                     <Button
-                      onClick={() => handleOpen({index, name, email, message })}
+                      onClick={() => handleOpen({index, name, email, message, createdAt })}
                       className="bg-transparent p-0 shadow-none"
                     >
                       <CiViewTimeline className="text-tertiary text-2xl " />
@@ -146,11 +146,14 @@ const Messages = () => {
             <span className="text-xs text-tertiary">Message {selectedMessage?.index+1}</span>
             <span className="text-primary">
             {selectedMessage?.name}</span>
-            <span className="text-xs text-secondary">{selectedMessage?.email}</span>
+            <div className="flex gap-5">
+                <span className="text-xs text-secondary">{selectedMessage?.email}</span>
+                <span className="text-xs text-gray-500">{selectedMessage?.createdAt}</span>
+            </div>
           </div>
         </DialogHeader>
         <DialogBody className="text-gray-600">
-          {selectedMessage?.message}
+          {selectedMessage?.message || ""}
         </DialogBody>
         <DialogFooter>
           <Button className="bg-primary " onClick={handleOpen}>

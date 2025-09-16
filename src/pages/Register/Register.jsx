@@ -152,7 +152,7 @@ const Register = () => {
                       name="password"
                       component="div"
                     />
-                    <ImageUpload key={formResetKey} onUpload={(url)=>setImageURL(url)} existingImage={imageURL}></ImageUpload>
+                    <ImageUpload heading={"Profile Picture"} key={formResetKey} onUpload={(url)=>setImageURL(url)} existingImage={imageURL}></ImageUpload>
                   </div>
                   <Button
                     className="bg-primary"

@@ -1,10 +1,12 @@
 import { Typography } from "@material-tailwind/react";
+import { useState } from "react";
 import { FaFacebook, FaGithub, FaInstagram } from "react-icons/fa";
 import { FaX } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const [aboutMe, , ] = useState();
   return (
     <div className="container mx-auto my-5">
       <footer>

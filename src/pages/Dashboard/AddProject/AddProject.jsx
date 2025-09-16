@@ -3,6 +3,8 @@ import { Card, Button, Typography, Input } from "@material-tailwind/react";
 import DashboardTitle from "../../../Components/SectionTitle/DashboardTitle";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import ImageUpload from "../../../Components/ImageUpload/ImageUpload";
+import { useState } from "react";
 
 const arrayOfText = (text) => {
   let splittedText = text.split(",");
@@ -14,6 +16,8 @@ const arrayOfText = (text) => {
 
 const AddProject = () => {
   const axiosSecure = useAxiosSecure();
+  const [imageURL, setImageURL] = useState("");
+  const [formResetKey, setFormResetKey] = useState(0);
 
   const handleAddProject = async (values, { setSubmitting, resetForm }) => {
     let techArray = [];
@@ -26,7 +30,7 @@ const AddProject = () => {
 
     const modifiedValue = {
       name: values.name,
-      image: values.image,
+      image: imageURL,
       projectLink: values.projectLink,
       description: values.description,
       technologies: techArray,
@@ -38,7 +42,7 @@ const AddProject = () => {
     };
 
     const response = await axiosSecure.post(`/super-shohag/add`, modifiedValue);
-    console.log(response.data)
+    console.log(response.data);
     if (response.data.insertedId) {
       Swal.fire({
         title: "Deleted",
@@ -244,6 +248,16 @@ const AddProject = () => {
                           <Input {...field} size="lg" placeholder="Tags" />
                         )}
                       </Field>
+                    </div>
+                  </div>
+                  <div className="flex flex-col md:flex-row gap-5">
+                    <div className="w-full space-y-4">
+                      <ImageUpload
+                        heading={"Project Image"}
+                        key={formResetKey}
+                        onUpload={(url) => setImageURL(url)}
+                        existingImage={imageURL}
+                      ></ImageUpload>
                     </div>
                   </div>
                 </div>

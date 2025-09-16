@@ -30,6 +30,7 @@ const AllProject = () => {
               title: "Deleted",
               text: "Your file has been deleted.",
               icon: "success",
+              timer: 1500,
             });
           }
         });

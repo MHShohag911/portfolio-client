@@ -1,14 +1,17 @@
 import { Button, Typography } from "@material-tailwind/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useAxiosPublic from "../../hooks/axiosPublic";
 
-const ImageUpload = ({onUpload, existingImage}) => {
+const ImageUpload = ({onUpload, existingImage, heading}) => {
   const [file, setFile] = useState(null);
   const [preview, setPreview] = useState(existingImage || "");
   const [loading, setLoading] = useState(false);
   const axiosPublic = useAxiosPublic();
   const image_hosting_api = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 
+  useEffect(()=> {
+    setPreview(existingImage || "");
+  }, [existingImage])
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
     if (selectedFile) {
@@ -43,7 +46,6 @@ const ImageUpload = ({onUpload, existingImage}) => {
         formData
       );
       const imageUrl = response.data.data.url;
-      console.log(imageUrl)
       onUpload(imageUrl);
     } catch (error) {
       console.error("Error uploading image:", error);
@@ -53,7 +55,7 @@ const ImageUpload = ({onUpload, existingImage}) => {
   };
   return (
     <div className="flex flex-col gap-2">
-      <Typography className="text-secondary" variant="h6">Upload Image</Typography>
+      <Typography className="text-secondary" variant="h6">{heading}</Typography>
 
       {/* Drag & Drop Area */}
       <div
@@ -79,7 +81,7 @@ const ImageUpload = ({onUpload, existingImage}) => {
 
       <Button
         size="sm"
-        className="bg-secondary"
+        className="bg-secondary rounded"
         onClick={handleUpload}
         disabled={!file || loading}
       >

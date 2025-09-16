@@ -91,7 +91,7 @@ const Dashboard = () => {
             <Typography className="text-white">{currentUser?.name || ""}</Typography>
           </div>
           <div>
-            <NavList />
+            <NavList/>
             <Button
               onClick={handleLogOut}
               className="bg-transparent shadow-none flex p-1 items-center text-tertiary font-bold"

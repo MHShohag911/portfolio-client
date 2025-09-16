@@ -32,45 +32,45 @@ const SkillsSection = () => {
             Mechanical/Technical Skills:
           </h2>
           <Progress
-              className="[&>div]:bg-[#F85023] "
+              className="[&>div]:bg-[#8770EA] "
             
             value={85}
-            size="lg"
+            size="sm"
             label="SolidWorks"
           />
           <Progress
               className="[&>div]:bg-[#8770EA] "
             
             value={80}
-            size="lg"
+            size="sm"
             label="Ansys"
           />
           <Progress
-              className="[&>div]:bg-[#39B76B] "
+              className="[&>div]:bg-[#8770EA] "
             
             value={85}
-            size="lg"
+            size="sm"
             label="Matlab"
           />
           <Progress
-              className="[&>div]:bg-[#F85023] "
+              className="[&>div]:bg-[#8770EA] "
             value={75}
             
-            size="lg"
+            size="sm"
             label="Arduino & Automation"
           />
           <Progress
               className="[&>div]:bg-[#8770EA] "
             
             value={75}
-            size="lg"
+            size="sm"
             label="Ansys"
           />
           <Progress
-              className="[&>div]:bg-[#39B76B] "
+              className="[&>div]:bg-[#8770EA]"
             
             value={85}
-            size="lg"
+            size="sm"
             label="Matlab"
           />
         </div>
@@ -79,44 +79,44 @@ const SkillsSection = () => {
             Web Development/Coding Skills:{" "}
           </h2>
           <Progress
-              className="[&>div]:bg-[#F85023] "
+              className="[&>div]:bg-[#8770EA] "
             value={85}
             
-            size="lg"
+            size="sm"
             label="React"
           />
           <Progress
               className="[&>div]:bg-[#8770EA] "
             
             value={80}
-            size="lg"
+            size="sm"
             label="Node.js/Express"
           />
           <Progress
-              className="[&>div]:bg-[#39B76B] "
+              className="[&>div]:bg-[#8770EA] "
             
             value={85}
-            size="lg"
+            size="sm"
             label="MongoDB"
           />
           <Progress
-              className="[&>div]:bg-[#F85023] "
+              className="[&>div]:bg-[#8770EA]"
             value={80}
-            size="lg"
+            size="sm"
             label="HTML/CSS/JS/Python"
           />
           <Progress
               className="[&>div]:bg-[#8770EA] "
             
             value={80}
-            size="lg"
+            size="sm"
             label="Tailwind/MUI/DaisyUI"
           />
           <Progress
-              className="[&>div]:bg-[#39B76B] "
+              className="[&>div]:bg-[#8770EA]"
             
             value={85}
-            size="lg"
+            size="sm"
             label="REST API"
           />
         </div>

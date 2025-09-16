@@ -4,10 +4,13 @@ import { Formik, Form, Field } from "formik";
 import { Card, Button, Typography, Input } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import ImageUpload from "../../Components/ImageUpload/ImageUpload";
 
 const EditProject = () => {
   const { id } = useParams();
   const [project, setProject] = useState([]);
+  const [imageURL, setImageURL] = useState("");
+  const [formResetKey, setFormResetKey] = useState(0);
   const axiosSecure = useAxiosSecure();
   const {
     name,
@@ -45,7 +48,7 @@ const EditProject = () => {
     }
     const updatedValues = {
       name: values.name,
-      image: values.image,
+      image: imageURL,
       projectLink: values.projectLink,
       description: values.description,
       technologies: techArray,
@@ -56,9 +59,12 @@ const EditProject = () => {
       tags: tagsArray,
     };
 
-    const projectRes = await axiosSecure.patch(`/super-shohag/edit/${id}`, updatedValues)
-    if(projectRes.data.modifiedCount>0){
-        console.log("updated data")
+    const projectRes = await axiosSecure.patch(
+      `/super-shohag/edit/${id}`,
+      updatedValues
+    );
+    if (projectRes.data.modifiedCount > 0) {
+      console.log("updated data");
     }
 
     console.log(updatedValues, project);
@@ -72,6 +78,7 @@ const EditProject = () => {
         .get(`/super-shohag/edit/${id}`)
         .then((res) => {
           setProject(res.data);
+          setImageURL(res.data.image);
         })
         .catch((err) => console.error("Error Fetching Project", err));
     }
@@ -89,7 +96,7 @@ const EditProject = () => {
             enableReinitialize
             initialValues={{
               name: name || "",
-              image: image || "",
+              image: imageURL || "",
               projectLink: projectLink || "",
               description: description || "",
               technologies: technologies || "",
@@ -129,11 +136,7 @@ const EditProject = () => {
                       </Typography>
                       <Field name="image">
                         {({ field }) => (
-                          <Input
-                            {...field}
-                            size="lg"
-                            placeholder="image"
-                          />
+                          <Input {...field} size="lg" placeholder="image" />
                         )}
                       </Field>
                     </div>
@@ -225,11 +228,7 @@ const EditProject = () => {
                       </Typography>
                       <Field name="type">
                         {({ field }) => (
-                          <Input
-                            {...field}
-                            size="lg"
-                            placeholder="type"
-                          />
+                          <Input {...field} size="lg" placeholder="type" />
                         )}
                       </Field>
                     </div>
@@ -243,11 +242,7 @@ const EditProject = () => {
                       </Typography>
                       <Field name="status">
                         {({ field }) => (
-                          <Input
-                            {...field}
-                            size="lg"
-                            placeholder="status"
-                          />
+                          <Input {...field} size="lg" placeholder="status" />
                         )}
                       </Field>
                     </div>
@@ -263,11 +258,7 @@ const EditProject = () => {
                       </Typography>
                       <Field name="features">
                         {({ field }) => (
-                          <Input
-                            {...field}
-                            size="lg"
-                            placeholder="features"
-                          />
+                          <Input {...field} size="lg" placeholder="features" />
                         )}
                       </Field>
                     </div>
@@ -281,13 +272,19 @@ const EditProject = () => {
                       </Typography>
                       <Field name="tags">
                         {({ field }) => (
-                          <Input
-                            {...field}
-                            size="lg"
-                            placeholder="tags"
-                          />
+                          <Input {...field} size="lg" placeholder="tags" />
                         )}
                       </Field>
+                    </div>
+                  </div>
+                  <div className="flex flex-col md:flex-row gap-5">
+                    <div className="w-full space-y-4">
+                      <ImageUpload
+                        heading={"Project Image"}
+                        key={formResetKey}
+                        onUpload={(url) => setImageURL(url)}
+                        existingImage={imageURL}
+                      ></ImageUpload>
                     </div>
                   </div>
                 </div>
