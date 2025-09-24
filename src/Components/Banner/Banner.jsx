@@ -1,50 +1,89 @@
-import myPhoto2 from "../../assets/img/My Photo 2.jpg";
-import { Typography } from "@material-tailwind/react";
+import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaLinkedinIn } from "react-icons/fa";
+import devImg from "../../assets/img/dev-image-1.png";
+import { Button, Typography } from "@material-tailwind/react";
+import { FaX } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 export function Banner() {
   return (
-    <div className="bg-banner-image bg-cover bg-center -mt-20">
-      <div className="w-full h-full bg-black/20 py-20">
+    <div className="bg-banner-image-3 bg-cover bg-center lg:-mt-20">
+      <div className="w-full h-full bg-black/50 py-20">
         <figure className="h-full w-full pt-10">
-          <div className="container mx-auto flex flex-col-reverse md:flex-row w-[calc(100%-4rem)] items-center justify-between rounded-xl border border-white bg-white/80 p-5 md:py-16 md:px-10 shadow-lg shadow-black/5 saturate-150 backdrop-blur-sm">
+          <div className="flex flex-col-reverse md:flex-row container mx-auto items-center justify-between rounded-xl bg-white/50 p-5 md:py-16 md:px-10 shadow-lg shadow-black/5 saturate-150 backdrop-blur-sm">
             <div className="h-full w-auto md:w-1/2 md:flex mr-5">
-              <figcaption className="w-full lg:p-5 p-0">
+              <figcaption className="w- mx-auto lg:p-5 p-0">
                 <div className="">
-                  <Typography className="text-[#F85023] text-2xl font-bold">Hello, I'm</Typography>
-                  <Typography
-                    variant="h1"
-                    color="black"
-                    className="mt-2 font-bold text-[#8770EA] text-2xl md:text-3xl"
-                  >
-                    Md Shohag Hossain
-                  </Typography>
-                  <Typography
-                    color="gray"
-                    className="font-bold  md:text-xxl text-[#39B76B]"
-                  >
-                    <span className="text-[#39B76B]">Engineer by Trade</span>,{" "}
-                    <span className="text-[#39B76B]">Developer by Passion</span>
-                  </Typography>
-                  <p className="text-xl text-justify text-gray-700">
-                    A results-driven Mechanical Engineer with a strong
-                    foundation in mechanical systems design, CAD modeling, and
-                    manufacturing processes — combined with full-stack web
-                    development skills in modern front-end and back-end
-                    technologies. Passionate about bridging the gap between the
-                    physical and digital worlds, I create efficient,
-                    user-focused engineering solutions and intuitive, scalable
-                    web applications. Experienced in problem-solving across
-                    disciplines, with a unique ability to think both
-                    analytically and creatively.
-                  </p>
+                  <div>
+                    <Typography className="text-primary text-3xl font-bold">
+                      Hello, I'm
+                    </Typography>
+                    <Typography
+                      color="black"
+                      className="mt-2 font-bold text-tertiary text-4xl md:text-3xl"
+                    >
+                      Md Shohag Hossain
+                    </Typography>
+                    <Typography
+                      color="gray"
+                      className="md:text-xxl text-secondary border-t-2 border-primary inline-block"
+                    >
+                      Engineer by Trade, Developer by Passion
+                    </Typography>
+                  </div>
                 </div>
+                <div className="py-5">
+                  <div className="flex gap-4 text-blue-gray-900 ">
+                    <Typography
+                      as="a"
+                      href="https://www.facebook.com/MH.Shohag.911"
+                      target="_blank"
+                      className="opacity-80 transition-opacity hover:opacity-100"
+                    >
+                      <FaFacebook className="text-2xl text-[#0866FF]"></FaFacebook>
+                    </Typography>
+                    <Typography
+                      as="a"
+                      href="https://www.instagram.com/m_h_shohag"
+                      target="_blank"
+                      className="opacity-80 transition-opacity hover:opacity-100"
+                    >
+                      <FaInstagram className="text-2xl text-white rounded bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600"></FaInstagram>
+                    </Typography>
+                    <Typography
+                      as="a"
+                      href="https://x.com/shohagmdhossain"
+                      target="_blank"
+                      className="opacity-80 transition-opacity hover:opacity-100"
+                    >
+                      <FaX className="text-2xl text-white bg-black rounded"></FaX>
+                    </Typography>
+                    <Typography
+                      as="a"
+                      href="https://github.com/MHShohag911"
+                      target="_blank"
+                      className="opacity-80 transition-opacity hover:opacity-100"
+                    >
+                      <FaGithub className="text-2xl text-black"></FaGithub>
+                    </Typography>
+                    <Typography
+                      as="a"
+                      href="https://linkedin.com/in/md-shohag-hossain-827146275"
+                      target="_blank"
+                      className="opacity-80 transition-opacity hover:opacity-100"
+                    >
+                      <FaLinkedin className="text-2xl text-blue-600"></FaLinkedin>
+                    </Typography>
+                  </div>
+                </div>
+                <Link className="border-2 px-4 py-2 font-normal border-primary bg-transparent text-primary rounded-none hover:bg-primary hover:shadow-xl hover:text-white mr-2" to={"/about"}>About</Link>
+                <a href="/CV.pdf" download="Md_Shohag_Hossain_CV.pdf" className="border-2 px-4 py-2 font-normal border-primary bg-transparent text-primary rounded-none hover:bg-primary hover:shadow-xl hover:text-white" >Download CV</a>
               </figcaption>
             </div>
             <div className="md:w-1/2 h-full flex flex-col justify-center">
-              <div className="mx-auto p-1 my-5 bg-white rounded-br-[50%] rounded-tl-[50%] border-transparent shadow-2xl shadow-black/20 backdrop-blur-sm">
+              <div className="w-full mx-auto p- my-5 bg-transparent border-transparent s">
                 <img
-                  src={myPhoto2}
-                  className="mx-auto w-full rounded-br-[50%] rounded-tl-[50%] object-cover object-center shadow-2xl "
+                  src={devImg}
+                  className="mx-auto w-full  object-cover object-center "
                   alt=""
                 />
               </div>

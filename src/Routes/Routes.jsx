@@ -8,13 +8,14 @@ import AllProject from "../pages/Dashboard/AllProject/AllProject";
 import AddProject from "../pages/Dashboard/AddProject/AddProject";
 import Skills from "../pages/Dashboard/Skills/Skills";
 import Messages from "../pages/Dashboard/Messages/Messages";
-import About from "../pages/Dashboard/About/About";
+import AboutMe from "../pages/Dashboard/About/AboutMe";
 import Settings from "../pages/Dashboard/Settings/Settings";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import PrivateRoute from "./PrivateRoute";
 import EditProject from "../pages/EditProject/EditProject";
 import Users from "../pages/Dashboard/Users/Users";
+import About from "../pages/About/About";
 
 export const router = createBrowserRouter([
   {
@@ -26,12 +27,16 @@ export const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: "/portfolio",
+        path: "/projects",
         element: <Portfolio></Portfolio>,
       },
       {
         path: "/contact",
         element: <Contact></Contact>,
+      },
+      {
+        path: "/about",
+        element: <About></About>,
       },
       {
         path: "login",
@@ -66,16 +71,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "edit/:id",
-        element: <EditProject></EditProject>,
-        /* loader: async ({ params }) => {
-          const res = await axios.get(
-            `http://localhost:5000/super-shohag/edit/${params.id}`,
-            {
-              withCredentials: true, 
-            }
-          );
-          return res.data; 
-        }, */
+        element: <EditProject></EditProject>
       },
       {
         path: "skills",
@@ -85,13 +81,9 @@ export const router = createBrowserRouter([
         path: "messages",
         element: <Messages></Messages>,
       },
-      /* {
-        path: 'messages/view-message',
-        element: <ViewMessage></ViewMessage>
-      }, */
       {
-        path: "about",
-        element: <About></About>,
+        path: "about-me",
+        element: <AboutMe></AboutMe>,
       },
       {
         path: "settings",

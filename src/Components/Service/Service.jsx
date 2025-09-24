@@ -9,7 +9,7 @@ const Service = () => {
   return (
     <div className="container mx-auto">
       <SectionTitle
-        heading={"What I Do for Clients"}
+        heading={"What I Do?"}
         subHeading={"Service"}
         description={
           "I provide solutions that combine Mechanical Engineering and Web Development. From CAD designs, robotics projects, to modern web applications, I deliver efficient and innovative results tailored to your needs."

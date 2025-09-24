@@ -6,12 +6,14 @@ export default withMT({
   theme: {
     extend: {
       backgroundImage: {
-        "banner-image": "url('./src/assets/img/bg-1.jpg')",
+        "banner-image-1": "url('./src/assets/img/bg-1.jpg')",
+        "banner-image-3": "url('./src/assets/img/bg-3.jpg')"
       },
       colors: {
-        'primary' : '#F85023',
-        'secondary' : '#8770EA',
-        'tertiary' : '#39B76B'
+        'primary' : '#3A1078',
+        'secondary' : '#4E31AA',
+        'tertiary' : '#3795BD',
+        'quaternary': "#F85023"
       },
     },
   },

@@ -11,7 +11,7 @@ import { FaXmark } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 function NavList() {
-  const navItems = ["portfolio", "blog", "contact"];
+  const navItems = ["projects", "about", "contact"];
   return (
     <ul className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
       <Typography
@@ -21,7 +21,7 @@ function NavList() {
         >
           <Link
             to={'/'}
-            className="flex items-center hover:text-blue-500 transition-colors uppercase"
+            className="flex items-center hover:text-secondary m hover:transition transition-colors uppercase"
           >
             Home
           </Link>
@@ -31,11 +31,11 @@ function NavList() {
           key={index}
           as="li"
           variant="small"
-          className="p-1 font-bold text-[#F85023]"
+          className="p-1 font-bold text-primary"
         >
           <Link
             to={`/${navItem}`}
-            className="flex items-center hover:text-blue-500 transition-colors uppercase"
+            className="flex items-center hover:text-secondary transition-colors uppercase"
           >
             {navItem}
           </Link>
@@ -60,14 +60,16 @@ export function NavBar() {
   }, []);
 
   return (
-    <Navbar className="mx-auto px-6 py-3 bg-transparent border-none shadow-none">
+    <Navbar className="mx-auto px-6 w-full py-3 bg-transparent border-none shadow-none">
       <div className="flex items-center justify-between text-white bg-transparent ">
         <Typography
           as="a"
           href="/"
-          className="mr-4 text-xl font-bold text-tertiary cursor-pointer py-1.5 "
+          className="mr-4 text-3xl font-bold cursor-pointer py-1.5 "
         >
-          Thunder Triangle
+          <span className="text-tertiary">Dev</span>
+          <span className="text-primary">M</span>
+          <span className="text-tertiary">ech</span>
         </Typography>
         <div className="hidden lg:block">
           <NavList />

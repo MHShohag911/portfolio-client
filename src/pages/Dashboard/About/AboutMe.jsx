@@ -7,7 +7,7 @@ import ImageUpload from "../../../Components/ImageUpload/ImageUpload";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
-const About = () => {
+const AboutMe = () => {
   const [aboutMe, , refetch] = useAboutMe();
   const [imageURL, setImageURL] = useState("");
   const [formResetKey, setFormResetKey] = useState(0);
@@ -63,17 +63,18 @@ const About = () => {
     };
 
     axiosSecure
-      .patch(`/super-shohag/about/${aboutMe[0]?._id}`, updatedValues)
+      .patch(`/super-shohag/about-me/${aboutMe[0]?._id}`, updatedValues)
       .then((res) => {
         if (res.data.modifiedCount>0) {
           console.log("User added to the database");
           Swal.fire({
             icon: "success",
-            title: "Successfully Updated the Profile",
+            title: "Successfully Updated the Project",
             showCancelButton: false,
             timer: 1500,
           });
         }
+        console.log(res.data)
         setFormResetKey((prev) => prev + 1);
         refetch();
         resetForm();
@@ -190,6 +191,7 @@ const About = () => {
                                   )}
                                 </Field>
                                 <Button
+                                  type="button"
                                   onClick={() => remove(idx)}
                                   className="bg-red-500 text-white rounded"
                                 >
@@ -200,6 +202,7 @@ const About = () => {
                           </div>
                           <div className="text-right mt-5">
                             <Button
+                              type="button"
                               onClick={() => push("")}
                               className=" bg-tertiary text-white rounded"
                             >
@@ -264,6 +267,7 @@ const About = () => {
                                   </div>
                                   <div className="text-right my-4 ">
                                     <Button
+                                      type="button"
                                       onClick={() => remove(index)}
                                       className="bg-red-500 text-white rounded"
                                     >
@@ -275,6 +279,7 @@ const About = () => {
                             )}
                             <div className="text-right my-4">
                               <Button
+                              type="button"
                                 onClick={() =>
                                   push({
                                     degree: "",
@@ -330,6 +335,7 @@ const About = () => {
                                         )}
                                       </Field>
                                       <Button
+                                      type="button"
                                        className="rounded"
                                         onClick={() => remove(index)}
                                         color="red"
@@ -342,6 +348,7 @@ const About = () => {
                               </div>
                               <div className="text-right my-5">
                                 <Button
+                                  type="button"
                                   className="bg-tertiary rounded"
                                   onClick={() => push("")}
                                 >
@@ -494,4 +501,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default AboutMe;

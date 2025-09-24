@@ -1,18 +1,30 @@
 import { useParams } from "react-router-dom";
 import DashboardTitle from "../../Components/SectionTitle/DashboardTitle";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, FieldArray } from "formik";
 import { Card, Button, Typography, Input } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import ImageUpload from "../../Components/ImageUpload/ImageUpload";
+import Swal from "sweetalert2";
 
 const EditProject = () => {
   const { id } = useParams();
-  const [project, setProject] = useState([]);
+  const [project, setProject] = useState({
+    name: "",
+      image: "",
+      projectLink: "",
+      description: "",
+      technologies: [""],
+      githubLink: "",
+      type: "",
+      status: "",
+      features: [""],
+      tags: [""],
+  });
   const [imageURL, setImageURL] = useState("");
   const [formResetKey, setFormResetKey] = useState(0);
   const axiosSecure = useAxiosSecure();
-  const {
+  /* const {
     name,
     image,
     projectLink,
@@ -23,40 +35,24 @@ const EditProject = () => {
     status,
     features,
     tags,
-  } = project || {};
+  } = project || {}; */
 
-  const capitalize = (arr) => {
+  /* const capitalize = (arr) => {
     return arr.map((item) => item.replace(/^\w/, (c) => c.toUpperCase()));
-  };
+  }; */
 
   const handleFormSubmit = async (values, { setSubmitting, resetForm }) => {
-    let techArray = [project.technologies];
-    let featuresArray = [project.features];
-    let tagsArray = [project.tags];
-
-    if (!Array.isArray(values.technologies)) {
-      const newTech = values.technologies.split(",");
-      techArray = capitalize(newTech);
-    }
-    if (!Array.isArray(values.features)) {
-      const newFeature = values.features.split(",");
-      featuresArray = capitalize(newFeature);
-    }
-    if (!Array.isArray(values.tags)) {
-      const newTags = values.tags.split(",");
-      tagsArray = capitalize(newTags);
-    }
     const updatedValues = {
       name: values.name,
       image: imageURL,
       projectLink: values.projectLink,
       description: values.description,
-      technologies: techArray,
+      technologies: values.technologies || [""],
       githubLink: values.githubLink,
       type: values.type,
       status: values.status,
-      features: featuresArray,
-      tags: tagsArray,
+      features: values.feature || [""],
+      tags: values.tags || [""],
     };
 
     const projectRes = await axiosSecure.patch(
@@ -65,6 +61,12 @@ const EditProject = () => {
     );
     if (projectRes.data.modifiedCount > 0) {
       console.log("updated data");
+      Swal.fire({
+              title: "Updated Project",
+              text: "Your file has been Updated.",
+              icon: "success",
+              timer: 1500,
+            });
     }
 
     console.log(updatedValues, project);
@@ -94,21 +96,10 @@ const EditProject = () => {
           <Formik
             className="w-full"
             enableReinitialize
-            initialValues={{
-              name: name || "",
-              image: imageURL || "",
-              projectLink: projectLink || "",
-              description: description || "",
-              technologies: technologies || "",
-              githubLink: githubLink || "",
-              type: type || "",
-              status: status || "",
-              features: features || "",
-              tags: tags || "",
-            }}
+            initialValues={project}
             onSubmit={handleFormSubmit}
           >
-            {({ isSubmitting }) => (
+            {({ values, isSubmitting }) => (
               <Form className="space-y-2">
                 <div className="mb-1 flex flex-col gap-4 p-5 md:p-0">
                   <div className="flex flex-col md:flex-row gap-5">
@@ -181,22 +172,50 @@ const EditProject = () => {
                   </div>
                   <div className="flex flex-col md:flex-row gap-5">
                     <div className="w-full space-y-4">
-                      <Typography
-                        variant="h6"
-                        color="blue-gray"
-                        className="-mb-2 text-secondary"
-                      >
-                        Technologies
-                      </Typography>
-                      <Field name="technologies">
-                        {({ field }) => (
-                          <Input
-                            {...field}
-                            size="lg"
-                            placeholder="technologies"
-                          />
-                        )}
-                      </Field>
+                      <FieldArray name="technologies">
+                        {({ push, remove }) => {
+                          return (
+                            <div>
+                              <Typography
+                                variant="h6"
+                                color="blue-gray"
+                                className="-mb-2 text-secondary"
+                              >
+                                Technologies
+                              </Typography>
+
+                              {values?.technologies?.map((tech, idx) => (
+                                <div key={idx} className="w-full space-y-4">
+                                  <Field name={`technologies.${idx}`}>
+                                    {({ field }) => (
+                                      <Input
+                                        {...field}
+                                        size="lg"
+                                        placeholder={`technologies.${idx}`}
+                                      />
+                                    )}
+                                  </Field>
+                                  <Button
+                                    type="button"
+                                    onClick={() => remove(idx)}
+                                    className="bg-red-500 text-white rounded"
+                                  >
+                                    Remove
+                                  </Button>
+                                </div>
+                              ))}
+                              <div className="text-right mt-5">
+                                <Button
+                                  onClick={() => push("")}
+                                  className=" bg-tertiary text-white rounded"
+                                >
+                                  Add
+                                </Button>
+                              </div>
+                            </div>
+                          );
+                        }}
+                      </FieldArray>
                     </div>
                     <div className="w-full space-y-4">
                       <Typography
@@ -249,32 +268,96 @@ const EditProject = () => {
                   </div>
                   <div className="flex flex-col md:flex-row gap-5">
                     <div className="w-full space-y-4">
-                      <Typography
-                        variant="h6"
-                        color="blue-gray"
-                        className="-mb-2 text-secondary"
-                      >
-                        Features
-                      </Typography>
-                      <Field name="features">
-                        {({ field }) => (
-                          <Input {...field} size="lg" placeholder="features" />
-                        )}
-                      </Field>
+                      <FieldArray name="features">
+                        {({ push, remove }) => {
+                          return (
+                            <div>
+                              <Typography
+                                variant="h6"
+                                color="blue-gray"
+                                className="-mb-2 text-secondary"
+                              >
+                                Features
+                              </Typography>
+
+                              {values?.features?.map((tech, idx) => (
+                                <div key={idx} className="w-full space-y-4">
+                                  <Field name={`features.${idx}`}>
+                                    {({ field }) => (
+                                      <Input
+                                        {...field}
+                                        size="lg"
+                                        placeholder={`features.${idx}`}
+                                      />
+                                    )}
+                                  </Field>
+                                  <Button
+                                    type="button"
+                                    onClick={() => remove(idx)}
+                                    className="bg-red-500 text-white rounded"
+                                  >
+                                    Remove
+                                  </Button>
+                                </div>
+                              ))}
+                              <div className="text-right mt-5">
+                                <Button
+                                  onClick={() => push("")}
+                                  className=" bg-tertiary text-white rounded"
+                                >
+                                  Add
+                                </Button>
+                              </div>
+                            </div>
+                          );
+                        }}
+                      </FieldArray>
                     </div>
                     <div className="w-full space-y-4">
-                      <Typography
-                        variant="h6"
-                        color="blue-gray"
-                        className="-mb-2 text-secondary"
-                      >
-                        Tags
-                      </Typography>
-                      <Field name="tags">
-                        {({ field }) => (
-                          <Input {...field} size="lg" placeholder="tags" />
-                        )}
-                      </Field>
+                      <FieldArray name="tags">
+                        {({ push, remove }) => {
+                          return (
+                            <div>
+                              <Typography
+                                variant="h6"
+                                color="blue-gray"
+                                className="-mb-2 text-secondary"
+                              >
+                                Tags
+                              </Typography>
+
+                              {values?.tags?.map((tech, idx) => (
+                                <div key={idx} className="w-full space-y-4">
+                                  <Field name={`tags.${idx}`}>
+                                    {({ field }) => (
+                                      <Input
+                                        {...field}
+                                        size="lg"
+                                        placeholder={`tags.${idx}`}
+                                      />
+                                    )}
+                                  </Field>
+                                  <Button
+                                    type="button"
+                                    onClick={() => remove(idx)}
+                                    className="bg-red-500 text-white rounded"
+                                  >
+                                    Remove
+                                  </Button>
+                                </div>
+                              ))}
+                              <div className="text-right mt-5">
+                                <Button
+                                  onClick={() => push("")}
+                                  className=" bg-tertiary text-white rounded"
+                                >
+                                  Add
+                                </Button>
+                              </div>
+                            </div>
+                          );
+                        }}
+                      </FieldArray>
                     </div>
                   </div>
                   <div className="flex flex-col md:flex-row gap-5">

@@ -19,15 +19,15 @@ function NavList() {
     ["add", <IoIosAddCircle />],
     ["skills", <GiSkills />],
     ["messages", <MdMessage />],
-    ["about", <IoPeopleSharp />],
+    ["about-me", <IoPeopleSharp />],
     ["settings", <GoGear />],
   ];
   return (
     <ul className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:gap-6">
-      <Typography as="li" variant="small" className="p-1 font-bold text-white">
+      <Typography as="li" variant="small" className="p-1 font-bold text-white mt-5">
         <Link
           to={"/"}
-          className="flex items-center text-tertiary hover:text-blue-500 transition-colors uppercase"
+          className="flex items-center text-white hover:text-tertiary uppercase"
         >
           <FaHome className="text-2xl mr-2" />
           Home
@@ -38,11 +38,11 @@ function NavList() {
           key={index}
           as="li"
           variant="small"
-          className="p-1 font-bold text-tertiary"
+          className="p-1 font-bold text-white"
         >
           <Link
             to={`${navItem[0]}`}
-            className="flex items-center hover:text-blue-500 transition-colors"
+            className="flex items-center hover:text-tertiary "
           >
             <span className="text-2xl text-s mr-2">{navItem[1]}</span>
             <span className="uppercase">{navItem[0]}</span>
@@ -57,7 +57,9 @@ const Dashboard = () => {
   const [open, setOpen] = React.useState(true);
   const [users] = useUsers();
   const { user, logOut } = useAuth();
-  const currentUser = users?.find((loggedUser) => loggedUser.email === user.email);
+  const currentUser = users?.find(
+    (loggedUser) => loggedUser.email === user.email
+  );
   const openDrawer = () => setOpen(true);
   const closeDrawer = () => setOpen(false);
 
@@ -76,11 +78,17 @@ const Dashboard = () => {
         <Drawer
           open={open}
           onClose={closeDrawer}
-          className="p-4 bg-secondary/40"
+          className="p-4 bg-primary/50"
         >
           <div className="mb-6 flex items-center justify-between">
-            <Typography variant="h5" className="text-black " color="blue-gray">
-              Thunder Triangle
+            <Typography
+              as="a"
+              href="/"
+              className="mr-4 text-3xl font-bold cursor-pointer py-1.5 "
+            >
+              <span className="text-tertiary">Dev</span>
+              <span className="text-primary">M</span>
+              <span className="text-tertiary">ech</span>
             </Typography>
             <IconButton variant="text" color="blue-gray" onClick={closeDrawer}>
               <ImCross className="text-xl text-white " />
@@ -88,13 +96,15 @@ const Dashboard = () => {
           </div>
           <div className="flex items-center gap-2">
             <Avatar src={currentUser?.imageURL} alt="avatar" />
-            <Typography className="text-white">{currentUser?.name || ""}</Typography>
+            <Typography className="text-tertiary">
+              {currentUser?.name || ""}
+            </Typography>
           </div>
           <div>
-            <NavList/>
+            <NavList />
             <Button
               onClick={handleLogOut}
-              className="bg-transparent shadow-none flex p-1 items-center text-tertiary font-bold"
+              className="bg-transparent shadow-none flex p-0 mt-5 hover:shadow-none hover:text-tertiary items-center text-white font-bold"
             >
               <IoLogOut className="text-3xl mr-1" />
               LogOut

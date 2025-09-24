@@ -92,41 +92,31 @@ const HireMe = () => {
         <div className="w-full mx-auto md:w-1/2 flex flex-col md:flex-row items-center">
           <div className="p-5">
             <div className="space-y-3">
-              <span className="text-2xl font-bold text-[#F85023]">I'm a </span>
-              <h2 className="text-xl font-bold text-[#8770EA]">
+              <span className="text-2xl font-bold text-primary">I'm a </span>
+              <h2 className="font-bold text-tertiary">
                 Mechanical Engineer | Web Developer | Tech Enthusiast
               </h2>
               <p className="text-justify text-gray-600">
-                I am a versatile professional with a background in Mechanical
-                Engineering and expertise in Web Development. My journey blends
-                technical knowledge of mechatronics, robotics, and CAD design
-                with modern skills in React, Node.js, and MongoDB. I enjoy
-                creating innovative solutions—whether it’s designing intelligent
-                systems or building interactive web applications.
+                I am a Mechanical Engineer with expertise in Mechatronics, and CAD, alongside modern web development skills in React, Node.js, and MongoDB. I enjoy creating innovative solutions, from intelligent systems to interactive web applications.
               </p>
             </div>
             <div className="space-y-2">
-              <h2 className="text-xl font-bold flex items-center text-[#F85023]  mt-5">
+              <h2 className="text-xl font-bold flex items-center text-primary mt-5">
                 <IoIosSchool className="text-2xl mr-2" />
                 Education
               </h2>
-              <h3 className="text-xl font-bold text-[#8770EA]">
+              <h3 className="font-bold text-tertiary">
                 B.Tech in Mechanical Engineering
               </h3>
-              <span className="text-[#39B76B] font-bold">Jain University, 2020-2024</span>
-              <p className="text-gray-600">
-                Focused on robotics, automation, CAD design, and embedded
-                systems. Completed academic projects in smart garage automation,
-                robotics simulation, and IoT-based systems.
-              </p>
+              <span className="text-primary text-xs font-bold">Jain University, 2020-2024</span>
             </div>
             <div className="space-y-3">
-              <p className="text-xl text-center text-[#F85023] mt-2 ">
-                "<span className="text-[#39B76B]">Engineering the Future</span>{" "}
-                | <span className="text-[#39B76B]">Coding the Web</span>"
+              <p className="text-xl text-center text-quaternary mt-2 ">
+                "<span className="">Engineering the Future</span>{" "}
+                | <span className="">Coding the Web</span>"
               </p>
               <div className="text-center">
-                <Button className="bg-[#F85023] mx-auto"><Link to={"/contact"}>Hire Me</Link></Button>
+                <Link className="bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white mx-auto rounded-none bg px-3 py-2 " to={"/contact"}>Contact Me</Link>
               </div>
             </div>
           </div>
