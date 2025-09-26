@@ -57,11 +57,10 @@ const AuthProvider = ({ children }) => {
         axiosPublic
           .post("/jwt", userInfo, { withCredentials: true })
           .then((res) => {
-            if (res.data.token) {
+            if (res?.data?.token) {
               console.log("Login token", res.data);
             }
           });
-
         setLoading(false);
       } else {
         axiosPublic

@@ -58,7 +58,7 @@ const Footer = () => {
             </Typography>
             <Typography
               as="a"
-              href="linkedin.com/in/md-shohag-hossain-827146275"
+              href="https://linkedin.com/in/md-shohag-hossain-827146275"
               target="_blank"
               className="opacity-100 transition-opacity hover:opacity-70"
             >

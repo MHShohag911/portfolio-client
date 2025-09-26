@@ -1,5 +1,10 @@
-import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaLinkedinIn } from "react-icons/fa";
-import devImg from "../../assets/img/dev-image-1.png";
+import {
+  FaFacebook,
+  FaGithub,
+  FaInstagram,
+  FaLinkedin,
+  FaLinkedinIn,
+} from "react-icons/fa";
 import { Button, Typography } from "@material-tailwind/react";
 import { FaX } from "react-icons/fa6";
 import { Link } from "react-router-dom";
@@ -75,14 +80,25 @@ export function Banner() {
                     </Typography>
                   </div>
                 </div>
-                <Link className="border-2 px-4 py-2 font-normal border-primary bg-transparent text-primary rounded-none hover:bg-primary hover:shadow-xl hover:text-white mr-2" to={"/about"}>About</Link>
-                <a href="/CV.pdf" download="Md_Shohag_Hossain_CV.pdf" className="border-2 px-4 py-2 font-normal border-primary bg-transparent text-primary rounded-none hover:bg-primary hover:shadow-xl hover:text-white" >Download CV</a>
+                <Link
+                  className="border-2 px-4 py-2 font-normal border-primary bg-transparent text-primary rounded-none hover:bg-primary hover:shadow-xl hover:text-white mr-2"
+                  to={"/about"}
+                >
+                  About
+                </Link>
+                <a
+                  href="/CV.pdf"
+                  download="Md_Shohag_Hossain_CV.pdf"
+                  className="border-2 px-4 py-2 font-normal border-primary bg-transparent text-primary rounded-none hover:bg-primary hover:shadow-xl hover:text-white"
+                >
+                  Download CV
+                </a>
               </figcaption>
             </div>
             <div className="md:w-1/2 h-full flex flex-col justify-center">
               <div className="w-full mx-auto p- my-5 bg-transparent border-transparent s">
                 <img
-                  src={devImg}
+                  src="https://i.ibb.co.com/ZpyzfSmS/dev-image-1.png"
                   className="mx-auto w-full  object-cover object-center "
                   alt=""
                 />

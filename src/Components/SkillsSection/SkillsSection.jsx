@@ -1,5 +1,4 @@
 import { Progress } from "@material-tailwind/react";
-import team2 from "../../assets/img/team-02.jpg";
 
 const SkillsSection = ({skills}) => {
   return (
@@ -24,7 +23,7 @@ const SkillsSection = ({skills}) => {
           <div className="mx-auto my-5 shadow-xl rounded-tl-[50%] rounded-br-[50%]">
             <img
               className="w-full rounded-tl-[50%] rounded-br-[50%] p-1 "
-              src={team2}
+              src="https://i.ibb.co.com/KzDDZTP1/team-02.jpg"
               alt=""
             />
           </div>

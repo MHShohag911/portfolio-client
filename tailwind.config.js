@@ -7,7 +7,7 @@ export default withMT({
     extend: {
       backgroundImage: {
         "banner-image-1": "url('./src/assets/img/bg-1.jpg')",
-        "banner-image-3": "url('./src/assets/img/bg-3.jpg')"
+        "banner-image-3": "url('https://i.ibb.co.com/23YDqP8N/bg-3.jpg')"
       },
       colors: {
         'primary' : '#3A1078',

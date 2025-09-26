@@ -1,5 +1,4 @@
 import { TbTargetArrow } from "react-icons/tb";
-import team1 from "../../assets/img/team-01.jpg";
 import {
   Card,
   CardBody,
@@ -84,7 +83,7 @@ const HireMe = () => {
           <div className="m-10 shadow-xl  mx-auto rounded-tr-[50%] rounded-bl-[50%]">
             <img
               className="w-full rounded-tr-[50%] rounded-bl-[50%] p-1 "
-              src={team1}
+              src="https://i.ibb.co.com/5gx8pNds/team-01.jpg"
               alt=""
             />
           </div>

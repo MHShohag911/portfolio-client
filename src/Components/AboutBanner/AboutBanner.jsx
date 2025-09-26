@@ -1,9 +1,8 @@
-import BannerImage from '../../../src/assets/img/about-banner.png'
 const AboutBanner = () => {
     return (
         <div className='relative'>
             <div className=''>
-                <img className='opacity-90' src={BannerImage} alt="" />
+                <img className='opacity-90' src="https://i.ibb.co.com/rK72xZ3h/about-banner.png" alt="" />
             </div>
         </div>
     );

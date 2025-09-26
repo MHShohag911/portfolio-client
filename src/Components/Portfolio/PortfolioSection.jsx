@@ -32,7 +32,7 @@ const PortfolioSection = () => {
         ))}
       </div>
       <div className="text-center my-10">
-          <Link className="bg-tertiary mx-auto text-white px-4 py-3 rounded" to="/portfolio">Show All</Link>
+          <Link className="bg-tertiary mx-auto text-white px-4 py-3 rounded" to="/projects">Show All</Link>
       </div>
     </div>
   );
